@@ -1,5 +1,3 @@
-<?php
-
 /* 
  * Copyright (C) 2016 Harun R Rayhan
  *
@@ -17,5 +15,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-require 'includes/database/connect.db.php';
-require 'includes/functions/chat.inc.php';
+$(document).ready( function() {
+    var interval = setInterval(function(){
+      $.ajax({
+         url: 'scripts/php/Chat.php',
+         success: function(data){
+             $('#messages').html(data);
+         }
+              
+        });  
+    },1000);
+});
+

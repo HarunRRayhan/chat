@@ -5,15 +5,15 @@ $db_user = 'root';
 $db_password = '';
 
 $db_name    = 'chat';
-
+$feedback = [];
 if($connection = mysql_connect($db_host, $db_user, $db_password)){
-    echo 'Connected to Database Server.... <br />';
+    $feedback[] = 'Connected to Database Server.... <br />';
     if($database = mysql_select_db($db_name, $connection)){
-        echo 'Database has been selected <br />';
+        $feedback[] = 'Database has been selected <br />';
     }  else {
-        echo 'Database not found! <br />';
+        $feedback[] = 'Database not found! <br />';
     }
 }  else {
-    echo 'Unable to connect';
+    $feedback[] = 'Unable to connect';
 }
 

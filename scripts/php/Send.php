@@ -17,5 +17,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-require 'includes/database/connect.db.php';
-require 'includes/functions/chat.inc.php';
+require '../../includes/database/connect.db.php';
+require '../../includes/functions/chat.func.php';
+
+if(isset($_GET['sender']) && !empty($_GET['sender'])){
+    $sender = $_GET['sender'];
+    
+    if(isset($_GET['message']) && !empty($_GET['message'])){
+        $message = $_GET['message'];
+        
+        if(send_msg($sender, $message)){
+            echo 'Message sent';
+        } else {
+            echo 'Message was\'nt sent.';
+        }
+    }  else {
+        echo 'No Message was entered';
+    }
+} else {
+    echo 'No name was entered';
+}

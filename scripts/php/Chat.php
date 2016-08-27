@@ -16,6 +16,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+require '../../includes/database/connect.db.php';
+require '../../includes/functions/chat.func.php';
 
-require 'includes/database/connect.db.php';
-require 'includes/functions/chat.inc.php';
+$messages = get_msg();
+            
+foreach ($messages as $message){
+    echo '<strong>'.$message['sender'].' Sent</strong> <br />';
+    echo $message['message'].'<br /><br />';
+}
